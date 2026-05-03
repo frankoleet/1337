@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "Artbufin | Картины в единственном экземпляре",
   description:
     "Авторские картины и рисунки, созданные вручную. Каждая работа существует в одном экземпляре.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +34,7 @@ export default function RootLayout({
       lang="ru"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <head>
         <script
@@ -45,7 +50,7 @@ try {
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body>
         {children}
         <ThemeToggle />
       </body>

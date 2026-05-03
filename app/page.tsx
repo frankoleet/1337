@@ -29,7 +29,7 @@ const heroCardPositions = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen text-[var(--foreground)]">
       <Header />
 
       <main>

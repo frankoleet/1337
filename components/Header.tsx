@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { label: "Работы", href: "/work" },
@@ -7,9 +10,23 @@ const navigation = [
   { label: "Контакты", href: "tg://resolve?domain=ARTBUFIN" },
 ];
 
+function isActiveLink(pathname: string, href: string) {
+  if (href === "/work") {
+    return (
+      pathname === "/work" ||
+      pathname.startsWith("/artwork/") ||
+      pathname.startsWith("/works/")
+    );
+  }
+
+  return pathname === href;
+}
+
 export function Header() {
+  const pathname = usePathname();
+
   return (
-    <header className="border-b border-[var(--border)] bg-[var(--background)]">
+    <header className="border-b border-[var(--border)]">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
         <div className="flex items-center justify-between gap-6">
           <Link
@@ -27,19 +44,28 @@ export function Header() {
           </a>
         </div>
 
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:flex-1 md:justify-end md:gap-10">
+        <div className="flex flex-col items-center gap-4 text-center md:flex-1 md:flex-row md:items-center md:justify-end md:gap-10 md:text-left">
           <nav aria-label="Основная навигация">
-            <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[var(--muted)]">
-              {navigation.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="transition-colors hover:text-[var(--foreground)]"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-[var(--muted)] md:justify-start">
+              {navigation.map((item) => {
+                const isActive = isActiveLink(pathname, item.href);
+
+                return (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`border-b pb-1 transition-colors hover:text-[var(--foreground)] ${
+                        isActive
+                          ? "border-[var(--foreground)] text-[var(--foreground)]"
+                          : "border-transparent text-[var(--muted)]"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 

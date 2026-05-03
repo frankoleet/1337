@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArtworkLightbox } from "@/components/ArtworkLightbox";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { StatusBadge } from "@/components/StatusBadge";
@@ -57,34 +57,18 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
   }
 
   const formattedPrice = formatPrice(artwork.price, artwork.currency);
-  const hasImageSource = artwork.image.startsWith("/");
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen text-[var(--foreground)]">
       <Header />
 
       <main>
         <section className="border-b border-[var(--border)]">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-10 lg:py-20">
-            <div className="relative min-h-[440px] overflow-hidden border border-[var(--border)] bg-[var(--card)] sm:min-h-[620px]">
-              {hasImageSource ? (
-                <Image
-                  src={artwork.image}
-                  alt={artwork.title}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 54vw, 100vw"
-                  className="object-contain"
-                />
-              ) : (
-                <div
-                  className="h-full min-h-[440px] w-full bg-cover bg-center sm:min-h-[620px]"
-                  style={{ background: artwork.image, backgroundSize: "cover" }}
-                  aria-label={`${artwork.title}: изображение работы`}
-                  role="img"
-                />
-              )}
-            </div>
+            <ArtworkLightbox
+              artwork={artwork}
+              formattedPrice={formattedPrice}
+            />
 
             <div className="flex flex-col">
               <div className="mb-8 flex items-start justify-between gap-4">
