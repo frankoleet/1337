@@ -6,7 +6,7 @@ export type Artwork = {
   title: string;
   description: string;
   price: number;
-  currency: "USD";
+  currency: "RUB";
   size: string;
   technique: string;
   material: string;

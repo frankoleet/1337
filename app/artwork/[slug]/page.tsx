@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArtworkLightbox } from "@/components/ArtworkLightbox";
 import { Footer } from "@/components/Footer";
@@ -65,6 +66,13 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
       <main>
         <section className="border-b border-[var(--border)]">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-10 lg:py-20">
+            <Link
+              href="/work"
+              className="inline-flex h-10 w-fit items-center justify-center border border-[var(--border-strong)] px-4 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)] hover:bg-[var(--card)] lg:col-span-2"
+            >
+              Назад к работам
+            </Link>
+
             <ArtworkLightbox
               artwork={artwork}
               formattedPrice={formattedPrice}
