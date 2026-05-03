@@ -39,7 +39,7 @@ export default function Home() {
               <p className="mb-6 text-xs font-medium tracking-[0.28em] text-[var(--muted)]">
                 ARTBUFIN РИСУЮ ДЛЯ ВАС
               </p>
-              <h1 className="text-5xl font-semibold leading-[1.02] tracking-normal text-[var(--foreground)] sm:text-7xl lg:text-8xl">
+              <h1 className="max-w-2xl text-4xl font-semibold leading-[1.08] tracking-normal text-[var(--text-hero)] sm:text-6xl sm:leading-[1.04] lg:text-7xl">
                 Картины, которые существуют вживую
               </h1>
               <p className="mt-8 max-w-xl text-lg leading-8 text-[var(--muted)]">
