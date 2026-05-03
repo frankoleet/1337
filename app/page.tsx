@@ -37,14 +37,15 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-10 lg:py-24">
             <div className="max-w-3xl">
               <p className="mb-6 text-xs font-medium tracking-[0.28em] text-[var(--muted)]">
-                ARTBUFIN РИСУЮ ДЛЯ ВАС
+                картины на холсте
               </p>
               <h1 className="max-w-2xl text-4xl font-semibold leading-[1.08] tracking-normal text-[var(--text-hero)] sm:text-6xl sm:leading-[1.04] lg:text-7xl">
                 Картины, которые существуют вживую
               </h1>
               <p className="mt-8 max-w-xl text-lg leading-8 text-[var(--muted)]">
-                Авторские картины и рисунки, созданные вручную. Каждая работа
-                существует в одном экземпляре и доступна для заказа.
+                Авторские картины, написанные вручную на качественном холсте.
+                Каждая работа создаётся с вниманием к деталям, существует в
+                одном экземпляре и доступна для заказа.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a
