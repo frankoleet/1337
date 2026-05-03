@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const navigation = [
-  { label: "Работы", href: "#works" },
-  { label: "О проекте", href: "#about" },
-  { label: "Доставка", href: "#delivery" },
-  { label: "Контакты", href: "mailto:studio@ris.art" },
+  { label: "Работы", href: "/work" },
+  { label: "Обо мне", href: "/#about" },
+  { label: "Доставка", href: "/#delivery" },
+  { label: "Контакты", href: "tg://resolve?domain=ARTBUFIN" },
 ];
 
 export function Header() {
@@ -14,13 +14,13 @@ export function Header() {
         <div className="flex items-center justify-between gap-6">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-[0.18em] text-[var(--foreground)]"
+            className="text-2xl font-semibold tracking-[0.18em] text-[var(--foreground)]"
             aria-label="Главная страница Artbufin"
           >
             Artbufin
           </Link>
           <a
-            href="mailto:studio@ris.art"
+            href="tg://resolve?domain=ARTBUFIN"
             className="inline-flex h-10 items-center justify-center border border-[var(--border-strong)] px-4 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)] md:hidden"
           >
             Забронировать
@@ -44,7 +44,7 @@ export function Header() {
           </nav>
 
           <a
-            href="mailto:studio@ris.art"
+            href="tg://resolve?domain=ARTBUFIN"
             className="hidden h-10 items-center justify-center border border-[var(--border-strong)] px-4 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)] hover:bg-[var(--card)] md:inline-flex"
           >
             Забронировать

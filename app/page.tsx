@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { artworks } from "@/data/artworks";
 
 const featuredArtworks = artworks.slice(0, 3);
+const previewArtworks = artworks.slice(3, 6);
 
 const steps = [
   {
@@ -36,10 +37,10 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-10 lg:py-24">
             <div className="max-w-3xl">
               <p className="mb-6 text-xs font-medium tracking-[0.28em] text-[var(--muted)]">
-                ЖИВЫЕ РАБОТЫ В ЕДИНСТВЕННОМ ЭКЗЕМПЛЯРЕ
+                ARTBUFIN РИСУЮ ДЛЯ ВАС
               </p>
               <h1 className="text-5xl font-semibold leading-[1.02] tracking-normal text-[var(--foreground)] sm:text-7xl lg:text-8xl">
-                Картины которые существуют вживую
+                Картины, которые существуют вживую
               </h1>
               <p className="mt-8 max-w-xl text-lg leading-8 text-[var(--muted)]">
                 Авторские картины и рисунки, созданные вручную. Каждая работа
@@ -53,7 +54,7 @@ export default function Home() {
                   Посмотреть работы
                 </a>
                 <a
-                  href="mailto:studio@ris.art"
+                  href="tg://resolve?domain=ARTBUFIN"
                   className="inline-flex h-12 items-center justify-center border border-[var(--border-strong)] px-6 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)] hover:bg-[var(--card)]"
                 >
                   Написать художнику
@@ -100,17 +101,17 @@ export default function Home() {
             <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
               <div>
                 <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-[var(--muted)]">
-                  Доступные работы
+                  Готовые работы
                 </p>
                 <h2 className="text-3xl font-semibold tracking-normal text-[var(--foreground)] sm:text-4xl">
                   Картины в наличии
                 </h2>
               </div>
               <a
-                href="mailto:studio@ris.art"
+                href="/work"
                 className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
               >
-                Запросить полный каталог
+                Все работы
               </a>
             </div>
 
@@ -118,6 +119,28 @@ export default function Home() {
               {featuredArtworks.map((artwork) => (
                 <ArtworkCard key={artwork.id} artwork={artwork} />
               ))}
+            </div>
+
+            {previewArtworks.length > 0 && (
+              <div className="relative mt-5 overflow-hidden">
+                <div className="grid gap-5 opacity-45 blur-[0.2px] md:grid-cols-3">
+                  {previewArtworks.map((artwork) => (
+                    <div key={artwork.id} className="scale-[0.97]">
+                      <ArtworkCard artwork={artwork} />
+                    </div>
+                  ))}
+                </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/80 to-transparent" />
+              </div>
+            )}
+
+            <div className="mt-10 flex justify-center">
+              <a
+                href="/work"
+                className="inline-flex h-12 items-center justify-center border border-[var(--border-strong)] px-6 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)] hover:bg-[var(--card)]"
+              >
+                Смотреть все работы
+              </a>
             </div>
           </div>
         </section>

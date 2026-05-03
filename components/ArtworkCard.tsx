@@ -25,7 +25,7 @@ export function ArtworkCard({
 
   return (
     <Link
-      href={`/works/${artwork.slug}`}
+      href={`/artwork/${artwork.slug}`}
       className={`${cardHeight} group flex h-full flex-col overflow-hidden border border-[var(--border)] bg-[var(--card)] transition-all duration-200 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:bg-[var(--card-hover)]`}
       aria-label={`Открыть работу ${artwork.title}`}
     >

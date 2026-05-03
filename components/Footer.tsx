@@ -1,7 +1,6 @@
 const links = [
   { label: "Instagram", href: "https://instagram.com" },
-  { label: "Telegram", href: "https://telegram.org" },
-  { label: "Email", href: "mailto:studio@ris.art" },
+  { label: "Telegram", href: "tg://resolve?domain=ARTBUFIN" },
 ];
 
 export function Footer() {
